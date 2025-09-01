@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harsh Sharma | Portfolio</title>
+  <meta name="description" content="Harsh Sharma – Physics student at NIT Agartala. Research interest lies in quantum mechanics, and condensed matter physics.">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+/* ===== Disclaimer Bar (Centered, Responsive) ===== */
+.disclaimer-box {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+  width: 80%;
+  max-width: 900px;
+  margin: 72px auto 0 auto;
+  overflow: hidden;
+  border-top: 2px solid #222;
+  border-radius: 10px;
+  position: relative;
+  white-space: nowrap;
+  z-index: 900;
+}
+
+.disclaimer-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: ticker-left 20s linear infinite;
+}
+
+.disclaimer-text {
+  display: inline-block;
+  padding-right: 50px; /* space between repeats */
+}
+
+.disclaimer-title {
+  color: red;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.disclaimer-text .ipc { color: red; font-weight: bold; }
+.disclaimer-text .law-sec { color: blue; font-weight: bold; }
+
+/* Duplicate text automatically with JS for seamless scroll */
+.disclaimer-box:hover .disclaimer-track {
+  animation-play-state: paused;
+}
+
+@keyframes ticker-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Mobile tweaks */
+@media (max-width: 600px) {
+  .disclaimer-box {
+    width: 95%;
+    font-size: 12px;
+    padding: 6px;
+    margin-top: 64px;
+  }
+  .disclaimer-track {
+    animation: ticker-left 12s linear infinite;
+  }
+}
+
+ 
+    /* Desktop navigation bar */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #111;
+  color: #fff;
+}
+
+.desktop-nav ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+  color: #ff9800;
+}
+
+/* Show hamburger only on mobile */
+.hb-btn {
+  display: none;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .hb-btn {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+/* ===== Gallery ===== */
+.gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* ===== Lightbox ===== */
+.lightbox {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 3000;
+}
+
+.lightbox img {
+  max-width: 85%;
+  max-height: 85%;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.lightbox .close:hover {
+  color: #00adee;
+}
+  
+  .about-container {
+  display: flex;              /* places photo + text side by side */
+  align-items: center;        /* vertically center them */
+  justify-content: flex-start;
+  gap: 20px;                  /* space between photo and text */
+  margin: 40px auto;
+  max-width: 1000px;          /* keeps it centered nicely */
+}
+
+.about-photo img {
+  width: 250px;               /* control size of photo */
+  height: auto;
+  border-radius: 15px;        /* optional: rounded corners */
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.about-text {
+  flex: 1;                    /* text takes remaining width */
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+    /* === Website Global Scroll === */
+html, body {
+  height: 100%;
+  overflow-y: scroll;  
+  scroll-behavior: smooth; 
+}
+
+/* === Scroll inside Project Experiences panel === */
+#panel-projects .mini-body {
+  max-height: 400px;   
+  overflow-y: auto;    
+  padding-right: 6px;  
+}
+/* ===== Global Reset ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0f0f0f;
+  color: #f5f5f5;
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+img, video { max-width: 100%; display: block; }
+section { padding: 80px 10%; }
+
+/* ===== Header / Navbar ===== */
+header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 10%;
+  background: rgba(15,15,15,0.8);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+header h1 { font-size: 22px; font-weight: 700; }
+nav a {
+  margin-left: 20px;
+  font-size: 15px;
+  transition: color 0.3s ease;
+}
+nav a:hover { color: #00adee; }
+
+
+/* ===== Hero Section ===== */
+.hero {
+  height: 50vh;
+  display: flex; justify-content: center; align-items: center;
+  gap: 50px;
+  padding: 0 10%;
+  background: linear-gradient(to right, #0f0f0f, #1a1a1a);
+}
+.hero-text { flex: 1; }
+.hero h2 { font-size: 2rem; font-weight: 300; }
+.hero h1 { font-size: 3.5rem; font-weight: 700; margin: 15px 0; }
+.hero p { max-width: 650px; font-size: 1rem; margin-bottom: 25px; }
+.btn {
+  display: inline-block; padding: 12px 24px;
+  background: #00adee; color: white; border-radius: 30px;
+  transition: background 0.3s ease;
+}
+.btn:hover { background: #007ba7; }
+
+.hero-video { 
+  flex: 1; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}
+.hero-video video {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.mute-btn {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 14px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.mute-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+.hero-video {
+  position: relative; /* to position button inside */
+}
+
+/* ===== About ===== */
+.about { display: flex; align-items: center; gap: 50px; flex-wrap: wrap; }
+.about img { width: 280px; border-radius: 15px; }
+.about-text h2 { font-size: 2rem; margin-bottom: 15px; }
+
+/* ===== Projects ===== */
+.projects h2, .skills h2, .contact h2 { font-size: 2rem; margin-bottom: 30px; text-align: center; }
+.project-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+.project-card {
+  background: #1c1c1c; padding: 20px; border-radius: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.project-card h3 { margin-bottom: 10px; font-size: 1.05rem; }
+
+/* ===== Skills ===== */
+.skills-list {
+  display: flex; flex-wrap: wrap; gap: 12px;
+  justify-content: center;
+}
+.skills-list span {
+  background: #262626; padding: 10px 14px;
+  border-radius: 20px; font-size: 14px;
+  transition: background 0.3s ease;
+  border: 1px solid #2a2a2a;
+}
+.skills-list span:hover { background: #00adee; }
+
+/* ===== Contact ===== */
+.contact form {
+  max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 15px;
+}
+.contact input, .contact textarea {
+  padding: 12px; border: none; border-radius: 10px;
+  background: #1c1c1c; color: white; font-size: 14px;
+}
+.contact button {
+  padding: 12px; background: #00adee; color: white; border: none;
+  border-radius: 30px; cursor: pointer; transition: 0.3s;
+}
+.contact button:hover { background: #007ba7; }
+
+/* ===== Footer ===== */
+footer {
+  text-align: center; padding: 20px 10%;
+  border-top: 1px solid #333;
+  background: #0f0f0f; color: #777;
+}
+
+/* === HAMBURGER ADDITIONS === */
+.corner-hamburger {
+  position: fixed; top: 14px; left: 14px; width: 44px; height: 44px;
+  background: rgba(28,28,28,0.9); border: 1px solid #2a2a2a; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; gap: 4px; flex-direction: column;
+  cursor: pointer; z-index: 2001; box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+}
+.corner-hamburger .bar { width: 22px; height: 2px; background: #f5f5f5; border-radius: 2px; }
+
+.hb-tray {
+  position: fixed; top: 64px; left: 14px; width: 240px;
+  background: #161616; border: 1px solid #2a2a2a; border-radius: 12px; padding: 10px; z-index: 2000;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+}
+.hb-item { display: block; padding: 10px 12px; font-size: 14px; border-radius: 8px; transition: background .2s ease; cursor: pointer; }
+.hb-item:hover { background: #232323; }
+.hb-divider { height: 1px; background: #2a2a2a; margin: 8px 0; }
+
+.mini-panel {
+  position: fixed; top: 90px; left: 90px; width: min(460px, 92vw); max-height: min(70vh, 620px);
+  background: #1b1b1b; border: 1px solid #2a2a2a; border-radius: 14px; box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  z-index: 1800; display: none; overflow: hidden;
+}
+.mini-header { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: #202020; border-bottom: 1px solid #2a2a2a; cursor: move; user-select: none; }
+.mini-title { font-size: 14px; font-weight: 600; }
+.mini-close { background: transparent; border: none; color: #bcbcbc; font-size: 20px; line-height: 1; cursor: pointer; padding: 0 6px; }
+.mini-close:hover { color: #ffffff; }
+.mini-body { padding: 14px; font-size: 14px; line-height: 1.6; overflow: auto; }
+.mini-body ul { padding-left: 18px; }
+.mini-note { font-size: 12px; color: #9b9b9b; margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column; text-align: center; }
+  .hero-text, .hero-video { flex: unset; width: 100%; }
+  .hero-video video { max-width: 500px; margin: 0 auto; }
+}
+.hero-video video {
+  max-width: 320px;
+  margin: 20px auto;
+}
+nav {
+  display: flex;
+}
+
+/* === Desktop Optimizations === */
+@media (min-width: 900px) {
+  /* Hero video bigger */
+  .hero-video video {
+    max-width: 700px;  /* instead of 320px */
+  }
+
+  /* Hero section taller for desktop */
+  .hero {
+    height: 80vh;
+  }
+
+  /* Contact form wider */
+  .contact form {
+    max-width: 700px;
+  }
+}
+/* =========================
+   Fixes: header overlap, video size, mobile panels
+   Paste this at the *end* of your existing <style> block
+   ========================= */
+
+/* 1) Make sure hero content sits below the fixed header */
+.hero {
+  /* push hero content down so header (position:fixed) doesn't overlap */
+  padding-top: 80px !important;
+  /* keep existing horizontal and bottom padding */
+  padding-right: 10% !important;
+  padding-left: 10% !important;
+}
+
+/* Slightly reduce on very small screens so it doesn't feel too tall */
+@media (max-width: 420px) {
+  .hero { padding-top: 64px !important; }
+}
+
+/* 2) Larger, responsive intro video (overrides the small hard-coded rule) */
+.hero-video {
+  position: relative; /* ensure button remains positioned relative to video */
+}
+.hero-video video {
+  width: 100%;
+  max-width: 760px;     /* larger on desktop so text in the video is readable */
+  height: auto;
+  margin: 0;
+  display: block;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+
+/* tablet */
+@media (max-width: 900px) {
+  .hero-video video {
+    max-width: 520px;
+  }
+}
+
+/* mobile */
+@media (max-width: 600px) {
+  .hero-video video {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* 3) Make mini-panel visible on small viewports and ensure close button is reachable */
+/* Raise mini-panel above hamburger/tray and make it centered on small screens */
+.mini-panel {
+  z-index: 2900; /* above hb-tray/hamburger (they were 2000/2001) but below lightbox (3000) */
+  /* keep original top/left for desktop behaviour; mobile-specific rules below */
+}
+
+/* Mobile / narrow screens: center the panel and place it below header */
+@media (max-width: 640px) {
+  .mini-panel {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    top: 72px !important;   /* sits below the fixed header */
+    width: 94vw !important; /* use most of viewport width */
+    max-height: 70vh;
+    right: auto;
+  }
+
+  /* Slightly reduce header padding inside the panel so the close button remains visible */
+  .mini-header {
+    padding: 8px 10px;
+  }
+
+  .mini-close {
+    font-size: 22px;
+    padding: 4px 8px;
+    line-height: 1;
+  }
+}
+
+/* Extra safety: if the hamburger is shown top-left, it won't cover the panel's close button now */
+.corner-hamburger {
+  z-index: 3001; /* keep above most UI, but since mini-panel is 2900 the panel remains visible; you can tweak */
+}
+
+/* 4) Optional small polish: ensure hero vertical center doesn't hide important text on very tall screens */
+@media (min-width: 1200px) {
+  .hero { height: 75vh; } /* increases hero height on very large monitors for a balanced look */
+}
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;  /* allows stacking on small screens */
+  padding: 20px;
+}
+.about img {
+  max-width: 350px;
+  width: 100%;
+  height: auto;           /* keep natural proportions */
+  border-radius: 50px;
+  object-fit: cover;      /* optional: crop neatly if inside container */
+}
+@media (max-width: 768px) {
+  .about img {
+    max-width: 80%;
+    height: auto;   /* important */
+  }
+
+  .about img {
+    max-width: 80%;  /* not oversized */
+  }
+}
+/* overlay shown when autoplay is blocked */
+.video-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 15px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  z-index: 2; /* sits above video */
+}
+.video-play-overlay.hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Navbar ===== -->
+  <header>
+    <h1>Harsh Sharma</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header> 
+  <!-- ===== Disclaimer (Ticker) ===== -->
+<div class="disclaimer-box" role="region" aria-label="Disclaimer ticker">
+  <div class="disclaimer-track" id="disclaimerTrack">
+    <div class="disclaimer-text">
+      ⚠️ <span class="disclaimer-title">Disclaimer:</span>
+      This content is for educational and research purposes only. Any abusive, defamatory, or unlawful language in messages will not be tolerated, and such actions may attract legal consequences under the 
+      <span class="ipc">IPC Section</span> 
+      (<span class="law-sec">499</span>) and 
+      (<span class="law-sec">500</span>).</div>
+    <div class="disclaimer-text">
+      ⚠️ <span class="disclaimer-title">Disclaimer:</span>
+      This content is for educational and research purposes only. Any abusive, defamatory, or unlawful language in messages will not be tolerated, and such actions may attract legal consequences under the 
+      <span class="ipc">IPC Section</span> 
+      (<span class="law-sec">499</span>) and 
+      (<span class="law-sec">500</span>).
+    </div>
+  </div>
+</div>
+
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Hello, I'm</h2>
+      <h1>Harsh Sharma</h1>
+      <p>Undergraduate Student, <br>Department of Physics, <br>National Institute of Technology Agartala.</p>
+      <a href="#projects" class="btn">Explore My Work</a>
+    </div>
+    <!-- hero-video (replace existing video tag) -->
+<div class="hero-video">
+  <video id="introVideo"
+         autoplay
+         muted
+         playsinline
+         webkit-playsinline
+         x5-playsinline
+         loop
+         preload="metadata"
+         aria-label="Intro video">
+    <source src="Introvideo.mp4" type="video/mp4">
+    <source src="Introvideo.webm" type="video/webm">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Play overlay shown only if autoplay is blocked -->
+  <button id="videoPlayOverlay" class="video-play-overlay" aria-hidden="true" title="Play video">▶</button>
+
+  <button id="muteBtn" class="mute-btn" aria-label="Unmute video">🔇</button>
+</div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="about">
+    <img src="Harshphoto.jpg" alt="Profile Picture">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p>I’m Harsh Sharma, a third-year undergraduate student of B.Sc.-B.Ed. (Physics) course pursuing at the National Institute of Technology Agartala, having an enthusiastic motivation for the career in condensed matter physics linked with the advancement in quantum material research and its application in real life offering human welfare.</p>
+    </div>
+  </section>
+
+  <!-- ===== Projects (Cards) ===== -->
+  <section id="projects" class="projects">
+    <h2>Project Experiences</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Detecting Fake Job Postings — IIT Jammu (Jun–Aug 2025)</h3>
+        <p>Tools used Python, Pandas/NumPy, SpaCy, scikit-learn for evaluation, and Matplotlib for plots.</p>
+      </div>
+      <div class="project-card">
+        <h3>Zeeman Quantum Geometry in Rashba System — NIT Silchar (May–Aug 2025)</h3>
+        <p>Berry curvature analysis and Hamiltonian implementation in Python under the guidance of Dr. Snehashish Nandy.</p>
+      </div>
+      <div class="project-card">
+        <h3>International Space Station Tracker — ISA (Jun–Jul 2025)</h3>
+        <p>Tracked the ISS from any city using Skyfield, Geopy, Astropy, Requests, Matplotlib, and ipywidgets.</p>
+      </div>
+      <div class="project-card">
+        <h3>Cobalt Ferrite (CoFe₂O₄) via Sol–Gel — IIT Patna (May–Jul 2025)</h3>
+        <p>Structural characterization with XRD; Rietveld refinement in FULLPROF and analysis in OriginPro 8.5.</p>
+      </div>
+      <div class="project-card">
+        <h3>Multiferroic Nanocomposite — NIT Agartala (Sep–Nov 2024)</h3>
+        <p>Study of magneto-capacitance with magneto-electric coupling and transport response of 0.5LaFeO₃–0.5PZT.</p>
+      </div>
+      <div class="project-card">
+        <h3>Curriculum Analysis — NITTTR Kolkata (Dec 2024–Jan 2025)</h3>
+        <p>Content analysis of Energy Band Theory using Krathwohl’s knowledge dimension; prepared learning outcomes.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Skills ===== -->
+  <section id="skills" class="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <span>Python</span><span>MATLAB</span><span>C++</span><span>LaTeX</span>
+      <span>MERN (MongoDB, Express, React, Node.js)</span>
+      <span>OriginPro 8.5</span><span>FULLPROF</span>
+      <span>Sample Preparation</span><span>XRD Analysis</span><span>Rietveld Refinement</span>
+      <span>Sonication</span><span>Centrifuge</span><span>Oscilloscope</span><span>Furnace</span>
+      <span>Data Analysis</span>
+    </div>
+  </section>
+    <!-- ===== Gallery ===== -->
+  <section id="gallery" class="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item"><img src="Photo2.jpg" alt="Gallery Image 1"></div>
+      <div class="gallery-item"><img src="Photo3.jpg" alt="Gallery Image 2"></div>
+      <div class="gallery-item"><img src="Photo4.jpg" alt="Gallery Image 3"></div>
+      <div class="gallery-item"><img src="Photo5.jpg" alt="Gallery Image 4"></div>
+      <div class="gallery-item"><img src="Photo6.jpg" alt="Gallery Image 5"></div>
+      <div class="gallery-item"><img src="Photo7.jpg" alt="Gallery Image 6"></div>
+      <div class="gallery-item"><img src="Photo8.jpg" alt="Gallery Image 7"></div>
+      <div class="gallery-item"><img src="Cobaltferrite.jpg" alt="Gallery Image 8"></div>
+    </div>
+  </section>
+
+
+  <!-- ===== Contact (Simple form) ===== -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mzzazdvz" method="POST">
+  <input type="text" name="Name" placeholder="Your Name" required>
+  <input type="email" name="Email" placeholder="Your Email" required>
+  <textarea name="Message" rows="5" placeholder="Your Message"></textarea>
+  <button type="Submit">Send Message</button>
+  </form>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>All rights reserved © 2025 Harsh Sharma</p>
+  </footer>
+
+  <!-- === HAMBURGER ADDITIONS (UI) === -->
+  <button id="hbBtn" class="corner-hamburger" aria-label="Open quick menu" aria-haspopup="true" aria-expanded="false">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <div id="hbTray" class="hb-tray" hidden>
+    <a class="hb-item" data-panel="panel-education">Education</a>
+    <a class="hb-item" data-panel="panel-projects">Project Experiences</a>
+    <a class="hb-item" data-panel="panel-publications">Publications</a>
+    <a class="hb-item" data-panel="panel-seminars">Seminars & Conferences</a>
+    <a class="hb-item" data-panel="panel-certifications">Certifications</a>
+    <a class="hb-item" data-panel="panel-achievements">Achievements</a>
+    <div class="hb-divider"></div>
+    <a class="hb-item" data-panel="panel-contact">Contact Details</a>
+  </div>
+
+  <!-- Mini panels without contenteditable -->
+  <div id="panel-education" class="mini-panel" role="dialog" aria-label="Education">
+    <div class="mini-header"><div class="mini-title">Education</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <ul> 
+      <li><strong><u>B.Sc.–B.Ed. (ITEP)</u></strong><br> Major: Physics, Minor: Mathematics;<br>National Institute of Technology, Agartala;<br>CGPA: <strong>8.20 / 10</strong> (up to 4th semester);<br>Year: <em>2025–26 (5th Semester ongoing)</em></li>
+      <li><strong><u>Senior Secondary (PCMB)</u></strong><br> PM Shri Jawahar Navodaya Vidyalaya, Jibantala, West Bengal — <strong>75.6%</strong> (2023)</li>
+      <li><strong><u>Secondary</u></strong><br> PM Shri Jawahar Navodaya Vidyalaya, Jibantala, West Bengal — <strong>91%</strong> (2021)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="panel-projects" class="mini-panel" role="dialog" aria-label="Project Experiences">
+    <div class="mini-header"><div class="mini-title">Project Experiences</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <ul>
+        <li><strong><u>IIT Jammu Summer School & Internship 2025</u></strong> (Online) — <em>(Jun 2025 – Aug 2025)</em><br>
+          <strong>Project:</strong> Detecting Fake Job Postings using the Fake Job Posting Dataset.<br>
+          <strong>Tools used:</strong> Python, Pandas/NumPy, SpaCy, scikit-learn, Matplotlib.</li>
+        <li><strong><u>SN Bose Summer Research Fellowship 2025</u></strong> — NIT Silchar <em>(May – Aug 2025)</em><br>
+          <strong>Project:</strong> Understanding Zeeman Quantum Geometry and its signature in Rashba System under the mentorship of Dr. Snehashish Nandy.<br>
+          <strong>Skill gained:</strong> Berry curvature analysis, Rashba Model, Hamiltonian implementation, and use of python for computational modelling.
+        </li>
+        <li><strong><u>Indian Space Academy (ISA), New Delhi,</u> Summer Internship Program 2025 </strong> <em>(Jun – Jul 2025)</em><br>
+          <strong>Project:</strong> Use of python to track the International Space Station (ISS) from any city on Earth.<br>
+          <strong>Tools used:</strong> Skyfield, Geopy, Astropy, Requests, Matplotlib, ipywidgets.
+        </li>
+        <li><strong><u>IIT Patna Summer Research Internship 2025</u></strong> <em> (May – Jul 2025)</em><br>
+          <strong>Project:</strong> Preparation of 'Cobalt Ferrite' using sol-gel method, and its structural characterization using XRD analysis skill.<br>
+          <strong>Skills gained:</strong> Rietveld refinement using FULLPROF; XRD analysis with OriginPro 8.5.
+        </li>
+        <li><strong><u>NIT Agartala Research Project</u></strong> <em> (Sep – Nov 2024)</em><br>
+          <strong>Project:</strong> Magneto-capacitance of 0.5LaFeO₃–0.5PZT multiferroic nanocomposite.<br>
+          <strong>Work:</strong> Magneto-electric coupling and transport response study.
+        </li>
+        <li><strong><u>NITTTR Kolkata Winter Internship</u></strong> <em> (Dec 2024 – Jan 2025)</em><br>
+          <strong>Project:</strong> Curriculum Analysis of 'Energy Band Theory' under the mentorship of Dr. Urmila Kar.<br>
+          <strong>Work:</strong> Used Krathwohl’s knowledge dimension, and prepared measurable learning outcomes.
+        </li>
+      </ul>
+      <p class="mini-note">Project experiences recorded up to Aug 2025.</p>
+    </div>
+  </div>
+
+  <div id="panel-publications" class="mini-panel" role="dialog" aria-label="Publications">
+    <div class="mini-header"><div class="mini-title">Publications</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <ul>
+        <li><strong>Springer Nature Journal</strong><br><u>Applied Physics A</u><br> H. Sharma, D. Nath, and R. Mallik, Study of magneto-capacitance with magneto-electric coupling 
+and transport response of 0.5LaFeO3-0.5PbZr0.58Ti0.42O3 nanocomposite, Appl. Phys. A 131, 121 (2025). Link: "https://doi.org/10.1007/s00339-025-08267-7"<br></li>
+      </ul>
+      <p class="mini-note">Further publications will be updated as they are accepted.</p>
+    </div>
+  </div>
+
+  <div id="panel-seminars" class="mini-panel" role="dialog" aria-label="Seminars and Conferences">
+  <div class="mini-header">
+    <div class="mini-title">Seminars &amp; Conferences</div>
+    <button class="mini-close" aria-label="Close">&times;</button>
+  </div>
+  <div class="mini-body">
+    <ul>
+      <li>
+        <strong><u>AC2MP- 2024 International Conference at IIT Patna</u></strong><br>
+        <strong>Title</strong>: Spin-charge Magneto-electric Coupling and Transport Response of Lanthanum-based Semiconducting Nanocomposite. (Dec 2024)
+      </li>
+      <li>
+        <strong><u>Regional-Level Science-exhibition cum project model presentation at JNV Purulia</u></strong><br>
+        <strong>Title</strong>: Eco-friendly waste-based concrete production for building construction. (Sep 2019)
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <div id="panel-certifications" class="mini-panel" role="dialog" aria-label="Certifications">
+    <div class="mini-header"><div class="mini-title">Certifications</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <ul>
+        <li><strong><u>Full Stack Web Development with MERN Stack Course</u>:</strong> — Certified by IIT Kanpur (May 2025)</li>
+        <li><strong><u>Central Teachers Eligibility Test (CTET)</u>:</strong> — Qualified and certified by CBSE, New Delhi (Dec 2024)</li>
+        <li><strong><u>Workshop on ‘Usable AI’</u>:</strong> —  Participation certificate provided by IICeS, NIT Agartala (Dec 2023)</li>
+      </ul>
+      <p class="mini-note">All certifications verified via respective platforms.</p>
+    </div>
+  </div>
+
+  <div id="panel-achievements" class="mini-panel" role="dialog" aria-label="Achievements">
+    <div class="mini-header"><div class="mini-title">Achievements</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <ul>
+        <li><strong><u>Summer Training Evaluation</u> (Full Stack Web Development) by IIT Kanpur:</strong> Scored 97.18%</li>
+        <li><strong><u>My Rank Statement</u>:</strong> 1st Rank in my department, and 13th rank in my institute, NIT Agartala</li>
+        <li><strong><u>NCET 2023 qualified</u>:</strong> Selected for the first batch of the Integrated Teacher Education Program (ITEP) under NEP 2020 at NIT Agartala (securing Sixth rank (Category: General) in NIT Agartala All India Counselling)</li>
+        <li><strong><u>RIE-CEE 2023</u>:</strong> State Rank (Biological Sciences) in Merit-list of RIE-BBSR: 11</li>
+        <li><strong><u>Navodaya Vidyalaya Samiti Scholar</u> (2015–2023)</strong></li>
+        </ul>
+    </div>
+  </div>
+
+  <div id="panel-contact" class="mini-panel" role="dialog" aria-label="Contact Details">
+    <div class="mini-header"><div class="mini-title">Contact Details</div><button class="mini-close" aria-label="Close">&times;</button></div>
+    <div class="mini-body">
+      <p><strong><u>Email:</u></strong> harshjnv2@gmail.com</p>
+      <p><strong><u>LinkedIn:</u></strong> Updating Soon</p>
+      <p><strong><u>GitHub:</u></strong> Updating Soon</p>
+    </div>
+  </div>
+
+  <!-- ===== JS for hamburger & panels ===== -->
+  <script>
+  const hbBtn = document.getElementById("hbBtn");
+  const hbTray = document.getElementById("hbTray");
+  const hbItems = document.querySelectorAll(".hb-item");
+  const panels = document.querySelectorAll(".mini-panel");
+  const closes = document.querySelectorAll(".mini-close");
+
+  // Toggle tray
+  hbBtn.addEventListener("click", () => {
+    hbTray.hidden = !hbTray.hidden;
+    hbBtn.setAttribute("aria-expanded", !hbTray.hidden);
+  });
+
+  // Open panel
+  hbItems.forEach(item => {
+    item.addEventListener("click", () => {
+      const targetId = item.getAttribute("data-panel");
+      document.getElementById(targetId).style.display = "block";
+      hbTray.hidden = true;
+    });
+  });
+
+  // Close panel
+  closes.forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.closest(".mini-panel").style.display = "none";
+    });
+  });
+
+  // Close panel if clicking outside
+  window.addEventListener("click", (e) => {
+    panels.forEach(panel => {
+      if (panel.style.display === "block" &&
+          !panel.contains(e.target) &&
+          !hbBtn.contains(e.target) &&
+          !hbTray.contains(e.target)) {
+        panel.style.display = "none";
+      }
+    });
+  });
+    
+  </script>
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('introVideo');
+  const muteBtn = document.getElementById('muteBtn');
+  const overlay = document.getElementById('videoPlayOverlay');
+
+  // Ensure the attribute & property are set (HTML already has muted but double-safety helps)
+  video.muted = true;
+
+  // Try autoplay and catch any promise rejection (autoplay blocked)
+  const tryPlay = video.play();
+  if (tryPlay !== undefined) {
+    tryPlay.then(() => {
+      // autoplay worked — hide overlay if present
+      overlay.classList.add('hidden');
+    }).catch((err) => {
+      // autoplay blocked — show overlay so user can tap to play
+      overlay.classList.remove('hidden');
+    });
+  }
+
+  // Overlay click attempts to play (user gesture)
+  overlay.addEventListener('click', async () => {
+    try {
+      video.muted = true; // must be muted for autoplay policies
+      await video.play();
+      overlay.classList.add('hidden');
+    } catch (e) {
+      // give some visual feedback if needed
+      console.warn('User-initiated play failed', e);
+    }
+  });
+
+  // Mute / unmute button (keeps accessible label in sync)
+  muteBtn.addEventListener('click', () => {
+    // if video was autoplay-blocked and overlay visible, allow first gesture to also unmute if user wants
+    video.muted = !video.muted;
+    muteBtn.textContent = video.muted ? '🔇' : '🔊';
+    muteBtn.setAttribute('aria-label', video.muted ? 'Unmute video' : 'Mute video');
+  });
+
+  // Optional: show controls on mobile after user interacts
+  video.addEventListener('play', () => {
+    // once playing, we can optionally show controls on touch devices
+    // if you want controls only after play, uncomment:
+    // if ('ontouchstart' in window) video.controls = true;
+  });
+});
+</script>
+</body>
+</html>
+
